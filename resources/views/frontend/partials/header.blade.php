@@ -77,8 +77,12 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
           <nav class="main-nav main-nav5">
             <ul>
               <li>
-                <a href="{{ route('home') }}" {{ \Request::route()->getName() == "home" ? "class=active" : "" }}>{{ trans('text.trang-chu') }}</a>                
-              </li>              
+                <a href="{{ route('home') }}" {{ \Request::route()->getName() == "home" ? "class=active" : "" }}>{!! trans('text.trang-chu') !!}</a>
+              </li>
+              <li>
+                <a href="{{ route('pages', 'gioi-thieu') }}" {{ \Request::route()->getName() == "pages" && isset($slug) && $slug = 'gioi-thieu' ? "class=active" : "" }}>Giới thiệu</a>                
+              </li>      
+                      
               @foreach($loaiSpList as $loaiSp) 
               <?php 
               $loai_id = $loaiSp->id;
@@ -96,6 +100,8 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
                 @endif
               </li>
               @endforeach
+              <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}" {{ \Request::route()->getName() == "album-vi" || \Request::route()->getName() == "album-detail-vi" ? "class=active" : "" }}>Hình ảnh</a></li> 
+              <li><a href="{{ route('video') }}" {{ \Request::route()->getName() == "video" || \Request::route()->getName() == "video-detail" ? "class=active" : "" }}>Video</a></li> 
               <li>
                 <a href="{{ route('news-vi') }}" {{ \Request::route()->getName() == "news-vi" || \Request::route()->getName() == "news-detail-vi" ? "class=active" : "" }}>Tin tức</a>                
               </li>   
@@ -106,24 +112,23 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12 hidden-xs hidden-sm">
           <div class="category-dropdown hidden-dropdown right-category-dropdown">
-            <h2 class="title-category-dropdown"><span>{{ trans('text.danh-muc') }}</span></h2>
+            <h2 class="title-category-dropdown"><span>{!! trans('text.danh-muc') !!}</span></h2>
             <div class="wrap-category-dropdown">
               <ul class="list-category-dropdown">
                 @foreach($loaiSpList as $loaiSp) 
                 <?php 
                 $loai_id = $loaiSp->id;
                 $cateList = DB::table('cate')->where('loai_id', $loai_id)->orderBy('display_order')->get();
-                
                 ?>
                 <li class="@if(!empty($cateList)) has-cat-mega @endif">
-                  <a href="{{ $lang == 'vi' ? route('danh-muc-cha', [$loaiSp->slug_vi]) : route('danh-muc-cha', [$loaiSp->slug_en]) }}">{{ $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en }}</a>               
+                  <a title="{!! $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en !!}" href="{{ $lang == 'vi' ? route('danh-muc-cha', [$loaiSp->slug_vi]) : route('danh-muc-cha', [$loaiSp->slug_en]) }}">{!! $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en !!}</a>               
                   @if(!empty($cateList))
                   <div class="cat-mega-menu cat-mega-style1" style="width:300px">
                     <div class="row">
                       <div class="col-md-12 col-sm-3">
                         <div class="list-cat-mega-menu">
                           @foreach($cateList as $cate)
-                          <h2 class="title-cat-mega-menu"><a href="{{ $lang == 'vi' ? route('danh-muc-con', [$loaiSp->slug_vi, $cate->slug_vi]) : route('danh-muc-con', [$loaiSp->slug_en, $cate->slug_en]) }}">{{ $lang == 'vi' ? $cate->name_vi : $cate->name_en }}</a></h2>
+                          <h2 class="title-cat-mega-menu"><a title="{!! $lang == 'vi' ? $cate->name_vi : $cate->name_en !!}" href="{{ $lang == 'vi' ? route('danh-muc-con', [$loaiSp->slug_vi, $cate->slug_vi]) : route('danh-muc-con', [$loaiSp->slug_en, $cate->slug_en]) }}">{!! $lang == 'vi' ? $cate->name_vi : $cate->name_en !!}</a></h2>
                           @endforeach
                         </div>
                       </div> 

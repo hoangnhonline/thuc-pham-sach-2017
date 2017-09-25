@@ -1,11 +1,11 @@
 @extends('frontend.layout')
 
 @section('content')
-<div class="block-headline-detail container">
+<div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
-      <li><a href="{{ route('home') }}">{{ trans('text.home') }}</a></li>
+      <li><a href="{{ route('home') }}">{{ trans('text.trang-chu') }}</a></li>
       <li><a href="{{ route('video') }}">Video</a></li>      
-      <li><a href="{{ $lang == 'vi' ? route('chi-tiet-album', [$detail->slug_vi, $detail->id]) : route('chi-tiet-album', [$detail->slug_en, $detail->id]) }}">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</a></li>
+      <li><a href="{{ $lang == 'vi' ? route('video-detail', [$detail->slug_vi, $detail->id]) : route('video-detail', [$detail->slug_en, $detail->id]) }}">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</a></li>
   </ul>
 </div>
 <div class="container page">
@@ -16,16 +16,14 @@
   <div class="block-main col-lg-9 col-md-8 col-sm-8">
     <div class="page-view">
 
-      <div class="title-page">
-        <h2 class="page-title">{{ trans('text.video-detail') }}</h2>
+      <div class="title-page shop-tab-title">
+        <h1 class="page-title">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</h1>
       </div>
 
       <div class="clearfix"></div>
 
       <div class="videodetail">
-        <div class="contentdetail">
-          <h1 class="tittle_video">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</h1>
-        </div>
+        
         <div class="video_clip">
           <div class="videoWrapper">
             <iframe width="100%" height="500" src="{{ $detail->video_url }}" frameborder="0" allowfullscreen></iframe>
@@ -38,18 +36,7 @@
             </div>
           </div>          
         </div>
-        <div class="ttin_tag">
-          <div class="top_tt">
-            <img src="{{ URL::asset('public/assets/images/icon_ttin_tag.png') }}" class="ttin_left_tag">
-            <div class="chu_tag">
-              <a href="#">dây nịt nam</a>,
-              <a href="#">day nit nam</a>,
-              <a href="h#">day lung nam</a>,
-              <a href="h#">dây lưng nam</a>,
-              <a href="#">thắt lưng nam</a>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div><!--/ end block-main -->
@@ -58,6 +45,18 @@
 
     </div>
   </div>
-
+<style type="text/css">
+  .shop-tab-title h1{
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  .textentry {
+    padding: 4px;
+    margin: 15px 0;
+    line-height: 20px;
+}
+</style>
 
 @endsection

@@ -8,13 +8,21 @@
           <div class="menu-footer">
             <ul>
               <li>
-                <a href="{{ route('home') }}">{{ trans('text.trang-chu') }}</a>
+                <a href="{{ route('home') }}" title="{{ trans('text.trang-chu') }}">{!! trans('text.trang-chu') !!}</a>
               </li>
+              <li>
+                <a href="{{ route('pages', 'gioi-thieu') }}" title="Giới thiệu">Giới thiệu</a>                
+              </li>   
               @foreach($loaiSpList as $loaiSp)              
               <li>
-                <a href="{{ $lang == 'vi' ? route('danh-muc-cha', [$loaiSp->slug_vi]) : route('danh-muc-cha', [$loaiSp->slug_en]) }}">{{ $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en }}</a>                
+                <a title="{!! $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en !!}" href="{{ $lang == 'vi' ? route('danh-muc-cha', [$loaiSp->slug_vi]) : route('danh-muc-cha', [$loaiSp->slug_en]) }}">{!! $lang == 'vi' ? $loaiSp->name_vi : $loaiSp->name_en !!}</a>                
               </li>
-              @endforeach              
+              @endforeach  
+              <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}" >Hình ảnh</a></li> 
+              <li><a href="{{ route('video') }}">Video</a></li>    
+              <li>
+                <a href="{{ route('news-vi') }}">Tin tức</a>                
+              </li>            
             </ul>
           </div>
         </div>        
@@ -24,8 +32,8 @@
             @foreach($footerArr as $footer)
             <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="footer-box">
-                <h2>{{ $lang == 'vi' ? $footer->name_vi : $footer->name_en }}</h2>
-                <?php echo $lang == 'vi' ? $footer->content_vi  : $footer->content_en; ?>
+                <h2>{!! $lang == 'vi' ? $footer->name_vi : $footer->name_en !!}</h2>
+                {!! $lang == 'vi' ? $footer->content_vi  : $footer->content_en !!}
               </div>
             </div>
             @endforeach            
@@ -46,7 +54,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class="copyright" style="text-align:right">
-                <p>All Rights Reserved. Powered by <a href="http://iweb247.vn/" target="_blank">iweb247.vn</a></p>
+                <p>All Rights Reserved. Powered by <a href="http://sahoweb.com" target="_blank">sahoweb.com</a></p>
               </div>
             </div>
           </div>

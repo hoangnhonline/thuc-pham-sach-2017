@@ -1,10 +1,10 @@
 @extends('frontend.layout')
 
 @section('content')
-<div class="block-headline-detail container">
+<div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
-      <li><a href="{{ route('home') }}">{{ trans('text.home') }}</a></li>
-      <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}">{{ $lang == 'vi' ? "Bộ sưu tập" : "Album" }}</a></li>
+      <li><a href="{{ route('home') }}">{{ trans('text.trang-chu') }}</a></li>
+      <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}">Hình ảnh</a></li>
   </ul>
 </div>
 <div class="container page">
@@ -16,7 +16,7 @@
       <div class="page-view">
 
         <div class="title-page">
-          <h2 class="page-title">{{ trans('text.album') }}</h2>
+          <h2 class="page-title">Hình ảnh</h2>
         </div>
 
         <div class="clearfix"></div>
@@ -25,7 +25,7 @@
           <div class="page-child-items row">
             @if($albumList->count() > 0)
               @foreach($albumList as $album)
-              <div class="page-child-item">
+              <div class="page-child-item col-md-4" >
                 <div class="album-item">
                    <a href="{{ $lang == 'vi' ? route('chi-tiet-album', [$album->slug_vi, $album->id]) : route('chi-tiet-album', [$album->slug_en, $album->id]) }}" title="{{ $lang == 'vi' ? $album->name_vi : $album->name_en }}">
                     <i class="icofont icofont-search-alt-1"></i>
@@ -56,5 +56,43 @@
 
   </div>
 </div>
-
+<style type="text/css">
+.shop-tab-title h1{
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+  .album-item {
+    position: relative;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease-out 0s;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    text-align: center;
+}
+.album-info {
+    height: 44px;
+    padding: 5px;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    background: rgba(180, 180, 180, 0.5);
+    width: 100%;
+    z-index: 1;
+}
+.album-img {
+    position: relative;
+    margin-bottom: 5px;
+    text-align: center;
+    max-height: 270px;
+}
+.album-info-name a {
+    color: #252525;
+    font-size: 16px;
+    display: block;
+}
+</style>
 @endsection

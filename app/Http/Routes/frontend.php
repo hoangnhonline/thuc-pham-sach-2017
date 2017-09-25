@@ -34,8 +34,8 @@ Route::group(['namespace' => 'Frontend'], function()
     Route::get('tag/{slug}', ['as' => 'tag', 'uses' => 'OtherController@tag']);
 
     Route::get('album/{slug}-{id}.html', ['as' => 'chi-tiet-album', 'uses' => 'AlbumController@detail']);
-    Route::get('bo-suu-tap.html', ['as' => 'album-vi', 'uses' => 'AlbumController@index']);
-    Route::get('collection.html', ['as' => 'album-en', 'uses' => 'AlbumController@index']);
+    Route::get('hinh-anh.html', ['as' => 'album-vi', 'uses' => 'AlbumController@index']);
+    Route::get('gallery.html', ['as' => 'album-en', 'uses' => 'AlbumController@index']);
 
     Route::get('video/{slug}-{id}.html', ['as' => 'video-detail', 'uses' => 'VideoController@detail']);
     Route::get('video.html', ['as' => 'video', 'uses' => 'VideoController@index']);

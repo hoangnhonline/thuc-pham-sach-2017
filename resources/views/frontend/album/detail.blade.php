@@ -1,10 +1,10 @@
 @extends('frontend.layout')
 
 @section('content')
-<div class="block-headline-detail container">
+<div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
-      <li><a href="{{ route('home') }}">{{ trans('text.home') }}</a></li>
-      <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}">{{ $lang == 'vi' ? "Bộ sưu tập" : "Album" }}</a></li>      
+      <li><a href="{{ route('home') }}">{{ trans('text.trang-chu') }}</a></li>
+      <li><a href="{{ $lang == 'vi' ? route('album-vi') : route('album-en') }}">Hình ảnh</a></li>      
       <li><a href="{{ $lang == 'vi' ? route('chi-tiet-album', [$detail->slug_vi, $detail->id]) : route('chi-tiet-album', [$detail->slug_en, $detail->id]) }}">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</a></li>
   </ul>
 </div>
@@ -16,15 +16,14 @@
   <div class="block-main col-lg-9 col-md-8 col-sm-8">
     <div class="page-view">
 
-      <div class="title-page">
-        <h2 class="page-title">{{ trans('text.album-detail') }}</h2>
+      <div class="title-page shop-tab-title">
+        <h1 class="page-title">{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</h1>
       </div>
 
       <div class="clearfix"></div>
 
       <div class="albumdetail">
-        <div class="contentdetail">
-          <h1>{{ $lang == 'vi' ? $detail->name_vi : $detail->name_en }}</h1>
+        <div class="contentdetail">          
           <ul id="imageGallery" class="imageGallery_ct">
             @foreach( $hinhArr as $hinh )            
             <li data-thumb="{{ Helper::showImage($hinh['image_url']) }}" data-src="{{ Helper::showImage($hinh['image_url']) }}">
@@ -34,19 +33,7 @@
           </ul>
           <div class="detail-album">
             <?php echo $lang == 'vi' ? $detail->content_vi : $detail->content_en; ?>
-          </div>
-          <div class="ttin_tag">
-            <div class="top_tt">
-              <img src="{{ URL::asset('public/assets/images/icon_ttin_tag.png') }}" class="ttin_left_tag">
-              <div class="chu_tag">
-                <a href="#">dây nịt nam</a>,
-                <a href="#">day nit nam</a>,
-                <a href="h#">day lung nam</a>,
-                <a href="h#">dây lưng nam</a>,
-                <a href="#">thắt lưng nam</a>
-              </div>
-            </div>
-          </div>
+          </div>          
         </div>
       </div>
 
@@ -56,7 +43,14 @@
   <div class="clearfix"></div>
     </div>
   </div>
-
+<style type="text/css">
+  .shop-tab-title h1{
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+</style>
 @endsection
 @section('javascript')
 <div id="fb-root"></div>

@@ -1,9 +1,9 @@
 @extends('frontend.layout')
 
 @section('content')
-<div class="block-headline-detail container">
+<div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
-      <li><a href="{{ route('home') }}">{{ trans('text.home') }}</a></li>
+      <li><a href="{{ route('home') }}">{{ trans('text.trang-chu') }}</a></li>
       <li><a href="{{ route('video') }}">Video</a></li>
   </ul>
 </div>
@@ -15,8 +15,8 @@
     <div class="block-main col-lg-9 col-md-8 col-sm-8">
       <div class="page-view">
 
-        <div class="title-page">
-          <h2 class="page-title">Video</h2>
+        <div class="title-page shop-tab-title">
+          <h1 class="page-title">Video</h1>
         </div>
 
         <div class="clearfix"></div>
@@ -25,7 +25,7 @@
           <div class="page-child-items row">
             @if($videoList->count() > 0)
               @foreach($videoList as $video)
-              <div class="page-child-item">
+              <div class="page-child-item col-md-4">
                 <div class="album-item">
                    <a href="{{ $lang == 'vi' ? route('video-detail', [$video->slug_vi, $video->id]) : route('video-detail', [$video->slug_en, $video->id]) }}" title="{{ $lang == 'vi' ? $video->name_vi : $video->name_en }}">
                     <i class="icofont icofont-search-alt-1"></i>
@@ -56,5 +56,49 @@
 
   </div>
 </div>
+<style type="text/css">
+.shop-tab-title h1{
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+.album-item {
+    position: relative;
+    margin-top: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease-out 0s;
+    -webkit-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
+    text-align: center;
+}
+.page-child-item {
+    width: 33.33333333%;
+    float: left;
+    padding: 0 15px;
+}
 
+.album-info {
+    height: 44px;
+    padding: 5px;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    background: rgba(180, 180, 180, 0.5);
+    width: 100%;
+    z-index: 1;
+}
+.album-img {
+    position: relative;
+    margin-bottom: 5px;
+    text-align: center;
+    max-height: 270px;
+}
+.album-info-name a {
+    color: #252525;
+    font-size: 16px;
+    display: block;
+}
+</style>
 @endsection
