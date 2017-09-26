@@ -55,7 +55,7 @@ class ProductController extends Controller
         $query->join('loai_sp', 'loai_sp.id', '=', 'product.loai_id');
         $query->leftJoin('cate', 'cate.id', '=', 'product.cate_id');
         $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id');        
-        $query->orderBy('product.id', 'desc');
+        $query->orderBy('display_order')->orderBy('product.id', 'desc');
         $items = $query->select(['product_img.image_url','product.*','product.id as sp_id', 'full_name' , 'product.created_at as time_created', 'users.full_name', 'loai_sp.name_vi as ten_loai', 'cate.name_vi as ten_cate'])
         ->paginate(50);   
 
@@ -68,6 +68,21 @@ class ProductController extends Controller
 
         return view('backend.product.index', compact( 'items', 'arrSearch', 'loaiSpArr', 'cateArr'));
     }    
+    public function saveOrder(Request $request){
+
+        $data = $request->all();
+        if(!empty($data['display_order'])){
+            foreach ($data['display_order'] as $key => $display_order) {
+                $model = Product::find($data['product_id'][$key]);
+                $model->display_order = $display_order;
+
+                $model->save();
+            }
+        }
+        Session::flash('message', 'Cập nhật thứ tự thành công');
+
+        return redirect()->route('product.index', ['cate_id' => $data['cate_id'], 'loai_id' => $data['loai_id']]);
+    }
     /**
     * Show the form for creating a new resource.
     *
@@ -137,6 +152,7 @@ class ProductController extends Controller
         $dataArr['content_en'] = str_replace("[Caption]", "", $dataArr['content_en']);
         
         $dataArr['status'] = 1;
+        $dataArr['display_order'] = Helper::getNextOrder('product', ['loai_id' => $dataArr['loai_id'], 'cate_id' => $dataArr['cate_id']]);
 
         $dataArr['created_user'] = Auth::user()->id;
 

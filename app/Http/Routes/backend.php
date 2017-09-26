@@ -115,6 +115,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend', 'middleware' => '
         Route::post('/store', ['as' => 'product.store', 'uses' => 'ProductController@store']);
         Route::get('{id}/edit',   ['as' => 'product.edit', 'uses' => 'ProductController@edit']);
         Route::post('/update', ['as' => 'product.update', 'uses' => 'ProductController@update']);
+        Route::post('/save-order', ['as' => 'product.save-order', 'uses' => 'ProductController@saveOrder']);
         Route::post('/ajax-search', ['as' => 'product.ajax-search', 'uses' => 'ProductController@ajaxSearch']);        
         Route::get('{id}/destroy', ['as' => 'product.destroy', 'uses' => 'ProductController@destroy']);
     });

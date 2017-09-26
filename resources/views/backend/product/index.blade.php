@@ -76,13 +76,21 @@
         
         <!-- /.box-header -->
         <div class="box-body">
+          <form method="post" action={{ route('product.save-order')}} >
+           @if($arrSearch['loai_id'] > 0 || $arrSearch['cate_id'] > 0 )
+          <button type="submit" class="btn btn-warning btn-sm">Cập nhật thứ tự</button>
+          @endif
           <div style="text-align:center">
            {{ $items->appends( $arrSearch )->links() }}
           </div>  
+          
+            {{ csrf_field() }}
+            <input type="hidden" name="loai_id" value="{{ $arrSearch['loai_id'] }}">
+            <input type="hidden" name="cate_id" value="{{ $arrSearch['cate_id'] }}">
           <table class="table table-bordered" id="table-list-data">
             <tr>
               <th style="width: 1%">#</th>
-              @if($arrSearch['is_hot'] == 1 && $arrSearch['loai_id'] > 0 )
+              @if($arrSearch['loai_id'] > 0 || $arrSearch['cate_id'] > 0 )
               <th style="width: 1%;white-space:nowrap">Thứ tự</th>
               @endif
               <th width="100px">Hình ảnh</th>
@@ -98,9 +106,10 @@
                 ?>
               <tr id="row-{{ $item->id }}">
                 <td><span class="order">{{ $i }}</span></td>
-                @if($arrSearch['is_hot'] == 1 && $arrSearch['loai_id'] > 0 )
+                @if($arrSearch['loai_id'] > 0 || $arrSearch['cate_id'] > 0 )
                 <td style="vertical-align:middle;text-align:center">
-                  <img src="{{ URL::asset('public/admin/dist/img/move.png')}}" class="move img-thumbnail" alt="Cập nhật thứ tự"/>
+                  <input type="text" name="display_order[]" value="{{ $item->display_order }}" class="form-control" style="width:40px; float:left;margin-right:10px">
+                  <input type="hidden" name="product_id[]" value="{{ $item->id }}" class="form-control" style="width:40px; float:left;margin-right:10px">
                 </td>
                 @endif
                 <td>
@@ -108,7 +117,7 @@
                 </td>
                 <td>                  
                   <a style="color:#333;font-weight:bold" href="{{ route( 'product.edit', [ 'id' => $item->id ]) }}">{{ $item->name_vi }}</a> &nbsp; @if( $item->is_hot == 1 )
-                  <img class="img-thumbnail" src="{{ URL::asset('public/admin/dist/img/star.png')}}" alt="Nổi bật" title="Nổi bật" />
+                  <label class="label label-danger"> HOT </label>
                   @endif<br />
                   <strong style="color:#337ab7;font-style:italic"> {{ $item->ten_loai }}  {{ $item->ten_cate }}</strong>
                  <p style="margin-top:10px">                    
@@ -133,6 +142,7 @@
 
           </tbody>
           </table>
+          </form>
           <div style="text-align:center">
            {{ $items->appends( $arrSearch )->links() }}
           </div>  

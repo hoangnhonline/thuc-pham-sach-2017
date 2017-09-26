@@ -91,7 +91,8 @@ class CateController extends Controller
             
         $s = $request->s ? $request->s : 1; // sort
         $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')                
-            ->select('product_img.image_url', 'product.*');                      
+            ->select('product_img.image_url', 'product.*'); 
+        $query->orderBy('product.display_order');                     
         if($s == 1){       
             $query->orderBy('product.id', 'desc');
         }elseif($s == 2){
@@ -208,7 +209,8 @@ class CateController extends Controller
             
         $s = $request->s ? $request->s : 1; // sort
         $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')                
-            ->select('product_img.image_url', 'product.*');                      
+            ->select('product_img.image_url', 'product.*');
+        $query->orderBy('product.display_order');                                           
         if($s == 1){       
             $query->orderBy('product.id', 'desc');
         }elseif($s == 2){

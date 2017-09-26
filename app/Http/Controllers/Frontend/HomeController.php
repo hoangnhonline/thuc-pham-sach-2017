@@ -57,12 +57,14 @@ class HomeController extends Controller
             $productArr[$loai->slug_vi] = Product::where(['status' => 1, 'loai_id' => $loai->id])
                                 ->join('product_img', 'thumbnail_id', '=', 'product_img.id')
                                 ->select('product.*', 'product_img.image_url')
+                                ->orderBy('display_order')
                                 ->orderBy('id', 'desc')->limit(8)->get();
             if($cateList[$loai->id]->count() > 0){
                 foreach($cateList[$loai->id] as $cate){
                     $productArr[$cate->id] = Product::where(['status' => 1, 'cate_id' => $cate->id])
                                 ->join('product_img', 'thumbnail_id', '=', 'product_img.id')
                                 ->select('product.*', 'product_img.image_url')
+                                ->orderBy('display_order')
                                 ->orderBy('id', 'desc')->limit(8)->get();
                 }
             }            
@@ -98,6 +100,7 @@ class HomeController extends Controller
         
         $sql->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')
                         ->select('product_img.image_url', 'product.*')
+                        ->orderBy('display_order')
                         ->orderBy('id', 'desc');
         $productArr = $sql->paginate(24);
         $seo['title'] = $seo['description'] = $seo['keywords'] = "Tìm kiếm sản phẩm theo từ khóa '".$tu_khoa."'";        
