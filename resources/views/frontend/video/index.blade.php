@@ -1,5 +1,5 @@
 @extends('frontend.layout')
-
+@include('frontend.partials.meta')
 @section('content')
 <div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
@@ -72,6 +72,15 @@
     -o-transition: all 0.4s ease-out 0s;
     -ms-transition: all 0.4s ease-out 0s;
     text-align: center;
+    height: 270px;
+}
+.album-item:hover {
+    -webkit-box-shadow: 4px -2px 5px 0px rgba(245,245,245,1);
+    -moz-box-shadow: 4px -2px 5px 0px rgba(245,245,245,1);
+    box-shadow: 4px -2px 5px 0px rgba(245,245,245,1);
+    -webkit-transition: all 0.4s ease-out 0s;
+    -o-transition: all 0.4s ease-out 0s;
+    -ms-transition: all 0.4s ease-out 0s;
 }
 .page-child-item {
     width: 33.33333333%;
@@ -99,6 +108,7 @@
     color: #252525;
     font-size: 16px;
     display: block;
+    margin-top: -10px;
 }
 </style>
 @endsection

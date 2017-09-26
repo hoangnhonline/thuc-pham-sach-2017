@@ -1,5 +1,5 @@
 @extends('frontend.layout')
-
+@include('frontend.partials.meta')
 @section('content')
 <div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
@@ -26,7 +26,7 @@
         
         <div class="video_clip">
           <div class="videoWrapper">
-            <iframe width="100%" height="500" src="{{ $detail->video_url }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="500" src="{{ str_replace("watch?v=", 'embed/', $detail->video_url) }}" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="textentry">

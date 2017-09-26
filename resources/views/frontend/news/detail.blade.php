@@ -4,8 +4,8 @@
 <div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">
       <li><a href="{{ route('home') }}">Trang chủ</a></li>
-      <li><a href="{{ $lang == 'vi' ? route('news-vi') : route('news-en') }}">{{ $lang == 'vi' ? "Tin tức" : "News" }}</a></li>
-      <li><a href="{{ $lang == 'vi' ? route('news-detail-vi', [$detail->slug, $detail->id]) : route('news-detail-en', [$detail->slug, $detail->id]) }}">{{ $detail->title }}</a></li>
+      <li><a href="{{ $lang == 'vi' ? route('news-vi') : route('news-en') }}">{!! $lang == 'vi' ? "Tin tức" : "News" !!}</a></li>
+      <li><a href="{{ $lang == 'vi' ? route('news-detail-vi', [$detail->slug, $detail->id]) : route('news-detail-en', [$detail->slug, $detail->id]) }}">{!! $detail->title !!}</a></li>
   </ul>
 </div>
 <div class="container page">
@@ -19,24 +19,11 @@
             <div class="clearfix"></div>
 
             <div class="newsdetail">
-              <div class="contentdetail">
-                <h1 style="font-size:27px">{{ $detail->title }}</h1>
+              <div class="contentdetail shop-tab-title">
+                <h1 style="font-size:27px">{!! $detail->title !!}</h1>
                 <div class="contentdetail-content">
-                    <?php echo $detail->content; ?>
-                </div>
-
-                <div class="ttin_tag">
-                  <div class="top_tt">
-                    <img src="{{ URL::asset('public/assets/images/icon_ttin_tag.png') }}" class="ttin_left_tag">
-                    <div class="chu_tag">
-                      <a href="#">dây nịt nam</a>,
-                      <a href="#">day nit nam</a>,
-                      <a href="h#">day lung nam</a>,
-                      <a href="h#">dây lưng nam</a>,
-                      <a href="#">thắt lưng nam</a>
-                    </div>
-                  </div>
-                </div>
+                    {!! $detail->content !!}
+                </div>                
               </div>
             </div>
 
@@ -46,5 +33,12 @@
         <div class="clearfix"></div>
           </div>
         </div>
-
+<style type="text/css">
+  .shop-tab-title h1{
+    font-weight: 700;
+    margin: 0;   
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+</style>
 @endsection

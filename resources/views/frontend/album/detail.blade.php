@@ -1,5 +1,5 @@
 @extends('frontend.layout')
-
+@include('frontend.partials.meta')
 @section('content')
 <div class="block-headline-detail container" style="margin-top:10px">
   <ul class="breadcrumb breadcrumb-customize">

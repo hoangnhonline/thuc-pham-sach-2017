@@ -4,7 +4,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ URL::asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+        <img src="{{ URL::asset('public/admin/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->full_name }}</p>
@@ -30,17 +30,17 @@
           <li {{ in_array(\Request::route()->getName(), ['cate.index', 'cate.edit', 'cate.create']) ? "class=active" : "" }}><a href="{{ route('cate.index') }}"><i class="fa fa-circle-o"></i> Danh mục con</a></li>
         </ul>
       </li>
-      <!--<li class="treeview {{ in_array(\Request::route()->getName(), ['album.index', 'album.create', 'album.edit']) ? 'active' : '' }}">
+      <li class="treeview {{ in_array(\Request::route()->getName(), ['album.index', 'album.create', 'album.edit']) ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-opencart"></i> 
-          <span>Bộ sưu tập</span>
+          <span>Album ảnh</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li {{ in_array(\Request::route()->getName(), ['album.index', 'album.edit']) ? "class=active" : "" }}><a href="{{ route('album.index') }}"><i class="fa fa-circle-o"></i> Bộ sưu tập</a></li>
-          <li {{ \Request::route()->getName() == "album.create" ? "class=active" : "" }}><a href="{{ route('album.create') }}"><i class="fa fa-circle-o"></i> Thêm bộ sưu tập</a></li>          
+          <li {{ in_array(\Request::route()->getName(), ['album.index', 'album.edit']) ? "class=active" : "" }}><a href="{{ route('album.index') }}"><i class="fa fa-circle-o"></i> Album ảnh</a></li>
+          <li {{ \Request::route()->getName() == "album.create" ? "class=active" : "" }}><a href="{{ route('album.create') }}"><i class="fa fa-circle-o"></i> Thêm album ảnh</a></li>          
         </ul>
       </li>
       <li {{ in_array(\Request::route()->getName(), ['video.edit', 'video.index', 'video.create']) ? "class=active" : "" }}>
@@ -48,7 +48,7 @@
           <i class="fa fa-pencil-square-o"></i> 
           <span>Video</span>         
         </a>       
-      </li>-->
+      </li>
       <li {{ in_array(\Request::route()->getName(), ['orders.index']) ? "class=active" : "" }}>
         <a href="{{ route('orders.index') }}">
           <i class="fa fa-pencil-square-o"></i> 

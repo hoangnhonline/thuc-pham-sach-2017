@@ -47,8 +47,7 @@
 
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#infoVi" aria-controls="infoVi" role="tab" data-toggle="tab">VN</a></li>
-                    <li role="presentation"><a href="#infoEn" aria-controls="infoEn" role="tab" data-toggle="tab">EN</a></li>                    
+                    <li role="presentation" class="active"><a href="#infoVi" aria-controls="infoVi" role="tab" data-toggle="tab">VN</a></li>                                      
                   </ul>
 
                   <!-- Tab panes -->
@@ -68,16 +67,7 @@
                           <label>URL video <span class="red-star">*</span></label>
                           <input type="text" class="form-control" name="video_url" id="video_url" value="{{ old('video_url') ? old('video_url') : $detail->video_url }}">
                         </div>
-                        <div class="form-group">
-                          <label>Tags VI</label>
-                          <select class="form-control select2" name="tags_vi[]" id="tags_vi" multiple="multiple" style="width:100% important;">                  
-                            @if( $tagViList->count() > 0)
-                              @foreach( $tagViList as $value )
-                              <option value="{{ $value->id }}" {{ in_array($value->id, $tagSelectedVi) ? "selected" : "" }}>{{ $value->name }}</option>
-                              @endforeach
-                            @endif
-                          </select>
-                        </div>
+                        
                         <div class="form-group" style="margin-top:10px;margin-bottom:10px">  
                           <label class="col-md-3 row">Thumbnail </label>    
                           <div class="col-md-9">
@@ -96,34 +86,7 @@
                           <label>Mô tả</label>
                           <textarea class="form-control" rows="4" name="description_vi" id="description_vi">{{ old('description_vi') ? old('description_vi') : $detail->description_vi }}</textarea>
                         </div>
-                    </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="infoEn">                        
-                          <!-- text input -->
-                        <div class="form-group">
-                          <label>Name <span class="red-star">*</span></label>
-                          <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') ? old('name_en') : $detail->name_en }}">
-                        </div>
-                        <div class="form-group">
-                          <label>Slug <span class="red-star">*</span></label>
-                          <input type="text" class="form-control" name="slug_en" id="slug_en" value="{{ old('slug_en') ? old('slug_en') : $detail->slug_en }}">
-                        </div>      
-                        <div class="form-group">
-                          <label>Tags EN</label>
-                          <select class="form-control select2" name="tags_en[]" id="tags_en" multiple="multiple" style="width:100% important;">                  
-                            @if( $tagEnList->count() > 0)
-                              @foreach( $tagEnList as $value )
-                              <option value="{{ $value->id }}" {{ in_array($value->id, $tagSelectedEn) ? "selected" : "" }}>{{ $value->name }}</option>
-                              @endforeach
-                            @endif
-                          </select>
-                        </div>            
-                        <!-- textarea -->
-                        <div class="form-group">
-                          <label>Description</label>
-                          <textarea class="form-control" rows="4" name="description_en" id="description_en">{{ old('description_en') ? old('description_en') : $detail->description_en }}</textarea>
-                        </div>
-                    </div><!--end thong tin co ban--> 
-                   
+                    </div><!--end thong tin co ban-->                    
                   </div>
 
                 </div>       
@@ -153,8 +116,7 @@
 
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#seoVi" aria-controls="seoVi" role="tab" data-toggle="tab">VN</a></li>
-                    <li role="presentation"><a href="#seoEn" aria-controls="seoEn" role="tab" data-toggle="tab">EN</a></li>                    
+                    <li role="presentation" class="active"><a href="#seoVi" aria-controls="seoVi" role="tab" data-toggle="tab">VN</a></li>                                    
                   </ul>
 
                   <!-- Tab panes -->
@@ -178,28 +140,7 @@
                             <label>Nội dung tùy chỉnh</label>
                             <textarea class="form-control" rows="6" name="custom_text_vi" id="custom_text_vi">{{ !empty((array)$meta) ? $meta->custom_text_vi : ""  }}</textarea>
                           </div>
-                    </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="seoEn">                        
-                        <div class="form-group">
-                            <label>Meta title </label>
-                            <input type="text" class="form-control" name="meta_title_en" id="meta_title_en" value="{{ !empty((array)$meta) ? $meta->title_en : "" }}">
-                          </div>
-                          <!-- textarea -->
-                          <div class="form-group">
-                            <label>Meta desciption</label>
-                            <textarea class="form-control" rows="6" name="meta_description_en" id="meta_description_en">{{ !empty((array)$meta) ? $meta->description_en : "" }}</textarea>
-                          </div>  
-
-                          <div class="form-group">
-                            <label>Meta keywords</label>
-                            <textarea class="form-control" rows="4" name="meta_keywords_en" id="meta_keywords_en">{{ !empty((array)$meta) ? $meta->keywords_en : "" }}</textarea>
-                          </div>  
-                          <div class="form-group">
-                            <label>Custom text</label>
-                            <textarea class="form-control" rows="6" name="custom_text_en" id="custom_text_en">{{ !empty((array)$meta) ? $meta->custom_text_en : ""  }}</textarea>
-                          </div>
-                    </div><!--end thong tin co ban--> 
-                   
+                    </div><!--end thong tin co ban-->                    
                   </div>
                   <input type="hidden" name="image_url" id="image_url" value="{{ $detail->image_url }}"/>          
                   <input type="hidden" name="image_name" id="image_name" value="{{ $detail->image_name }}"/>

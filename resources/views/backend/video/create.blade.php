@@ -43,8 +43,7 @@
 
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#infoVi" aria-controls="infoVi" role="tab" data-toggle="tab">VN</a></li>
-                    <li role="presentation"><a href="#infoEn" aria-controls="infoEn" role="tab" data-toggle="tab">EN</a></li>                    
+                    <li role="presentation" class="active"><a href="#infoVi" aria-controls="infoVi" role="tab" data-toggle="tab">VN</a></li>                                    
                   </ul>
 
                   <!-- Tab panes -->
@@ -64,16 +63,7 @@
                           <label>URL video <span class="red-star">*</span></label>
                           <input type="text" class="form-control" name="video_url" id="video_url" value="{{ old('video_url') }}">
                         </div>
-                        <div class="form-group">
-                          <label>Tags VI</label>
-                          <select class="form-control select2" name="tags_vi[]" id="tags_vi" multiple="multiple" style="width:100% important;">                  
-                            @if( $tagViList->count() > 0)
-                              @foreach( $tagViList as $value )
-                              <option value="{{ $value->id }}" {{ old('tags') && in_array($value->id, old('tags_vi') ) ? "selected" : "" }}>{{ $value->name }}</option>
-                              @endforeach
-                            @endif
-                          </select>
-                        </div>
+                      
                         <div class="form-group" style="margin-top:10px;margin-bottom:10px">  
                           <label class="col-md-3 row">Thumbnail </label>    
                           <div class="col-md-9">
@@ -92,33 +82,7 @@
                           <label>Mô tả</label>
                           <textarea class="form-control" rows="4" name="description_vi" id="description_vi">{{ old('description_vi') }}</textarea>
                         </div>
-                    </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="infoEn">                        
-                          <!-- text input -->
-                        <div class="form-group">
-                          <label>Name <span class="red-star">*</span></label>
-                          <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
-                        </div>
-                        <div class="form-group">
-                          <label>Slug <span class="red-star">*</span></label>
-                          <input type="text" class="form-control" name="slug_en" id="slug_en" value="{{ old('slug_en') }}">
-                        </div>   
-                        <div class="form-group">
-                          <label>Tags EN</label>
-                          <select class="form-control select2" name="tags_en[]" id="tags_en" multiple="multiple" style="width:100% important;">                  
-                            @if( $tagEnList->count() > 0)
-                              @foreach( $tagEnList as $value )
-                              <option value="{{ $value->id }}" {{ old('tags') && in_array($value->id, old('tags_en') ) ? "selected" : "" }}>{{ $value->name }}</option>
-                              @endforeach
-                            @endif
-                          </select>
-                        </div>               
-                        <!-- textarea -->
-                        <div class="form-group">
-                          <label>Description</label>
-                          <textarea class="form-control" rows="4" name="description_en" id="description_en">{{ old('description_en') }}</textarea>
-                        </div>
-                    </div><!--end thong tin co ban--> 
+                    </div><!--end thong tin co ban-->                    
                    
                   </div>
 
@@ -148,8 +112,7 @@
 
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#seoVi" aria-controls="seoVi" role="tab" data-toggle="tab">VN</a></li>
-                    <li role="presentation"><a href="#seoEn" aria-controls="seoEn" role="tab" data-toggle="tab">EN</a></li>                    
+                    <li role="presentation" class="active"><a href="#seoVi" aria-controls="seoVi" role="tab" data-toggle="tab">VN</a></li>                                    
                   </ul>
 
                   <!-- Tab panes -->
@@ -174,27 +137,6 @@
                             <textarea class="form-control" rows="6" name="custom_text_vi" id="custom_text_vi">{{ old('custom_text_vi') }}</textarea>
                           </div>
                     </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="seoEn">                        
-                        <div class="form-group">
-                            <label>Meta title </label>
-                            <input type="text" class="form-control" name="meta_title_en" id="meta_title_en" value="{{ old('meta_title_en') }}">
-                          </div>
-                          <!-- textarea -->
-                          <div class="form-group">
-                            <label>Meta desciption</label>
-                            <textarea class="form-control" rows="6" name="meta_description_en" id="meta_description_en">{{ old('meta_description_en') }}</textarea>
-                          </div>  
-
-                          <div class="form-group">
-                            <label>Meta keywords</label>
-                            <textarea class="form-control" rows="4" name="meta_keywords_en" id="meta_keywords_en">{{ old('meta_keywords_en') }}</textarea>
-                          </div>  
-                          <div class="form-group">
-                            <label>Custom text</label>
-                            <textarea class="form-control" rows="6" name="custom_text_en" id="custom_text_en">{{ old('custom_text_en') }}</textarea>
-                          </div>
-                    </div><!--end thong tin co ban--> 
-                   
                   </div>
 
                 </div>              
@@ -229,16 +171,7 @@
           filebrowserImageUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=images') }}",
           filebrowserFlashUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=flash') }}"
       });
-      var editor2 = CKEDITOR.replace( 'description_en',{
-          language : 'vi',
-          height: 300,
-          filebrowserBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=files') }}",
-          filebrowserImageBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=images') }}",
-          filebrowserFlashBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=flash') }}",
-          filebrowserUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=files') }}",
-          filebrowserImageUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=images') }}",
-          filebrowserFlashUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=flash') }}"
-      });   
+    
       $('#btnUploadImage').click(function(){        
         $('#file-image').click();
       });      
@@ -307,33 +240,7 @@
               }
             });
          }
-      });
-      $('#name_en').change(function(){
-         var name = $.trim( $(this).val() );
-         if( name != '' && $('#slug_en').val() == ''){
-            $.ajax({
-              url: $('#route_get_slug').val(),
-              type: "POST",
-              async: false,      
-              data: {
-                str : name
-              },              
-              success: function (response) {
-                if( response.str ){                  
-                  $('#slug_en').val( response.str );
-                }                
-              },
-              error: function(response){                             
-                  var errors = response.responseJSON;
-                  for (var key in errors) {
-                    
-                  }
-                  //$('#btnLoading').hide();
-                  //$('#btnSave').show();
-              }
-            });
-         }
-      });
+      });      
 
     });
     

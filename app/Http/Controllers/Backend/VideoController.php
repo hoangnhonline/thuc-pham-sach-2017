@@ -27,8 +27,7 @@ class VideoController extends Controller
         $query = Video::where('video.status', 1);
               
         if( $name != ''){
-            $query->where('video.name_vi', 'LIKE', '%'.$name.'%');
-            $query->orWhere('video.name_en', 'LIKE', '%'.$name.'%');
+            $query->where('video.name_vi', 'LIKE', '%'.$name.'%');            
         }
         $items = $query->paginate(50);
         return view('backend.video.index', compact( 'items', 'arrSearch'));
@@ -87,8 +86,7 @@ class VideoController extends Controller
             $dataArr['image_url'] = $destionation;
         } 
 
-        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);
-        $dataArr['alias_en'] = Helper::stripUnicode($dataArr['name_en']);
+        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);        
                    
         $dataArr['created_user'] = Auth::user()->id;
         $dataArr['updated_user'] = Auth::user()->id;
@@ -121,7 +119,7 @@ class VideoController extends Controller
 
         $this->storeMeta( $id, 0, $dataArr);
 
-        Session::flash('message', 'Tạo mới video thành công');
+        Session::flash('message', 'Tạo mới thành công');
 
         return redirect()->route('video.index');
     }
@@ -206,8 +204,7 @@ class VideoController extends Controller
             
             $dataArr['image_url'] = $destionation;
         }
-        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);
-        $dataArr['alias_en'] = Helper::stripUnicode($dataArr['name_en']);
+        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);        
               
         $dataArr['updated_user'] = Auth::user()->id; 
 
@@ -240,7 +237,7 @@ class VideoController extends Controller
 
         $this->storeMeta( $dataArr['id'], $dataArr['meta_id'], $dataArr);
 
-        Session::flash('message', 'Cập nhật video thành công');
+        Session::flash('message', 'Cập nhật thành công');
 
         return redirect()->route('video.edit', $dataArr['id']);
     }
@@ -251,10 +248,10 @@ class VideoController extends Controller
             'description_vi' => $dataArr['meta_description_vi'], 
             'keywords_vi'=> $dataArr['meta_keywords_vi'], 
             'custom_text_vi' => $dataArr['custom_text_vi'], 
-            'title_en' => $dataArr['meta_title_en'], 
-            'description_en' => $dataArr['meta_description_en'], 
-            'keywords_en'=> $dataArr['meta_keywords_en'], 
-            'custom_text_en' => $dataArr['custom_text_en'], 
+            //'title_en' => $dataArr['meta_title_en'], 
+            //'description_en' => $dataArr['meta_description_en'], 
+            //'keywords_en'=> $dataArr['meta_keywords_en'], 
+            //'custom_text_en' => $dataArr['custom_text_en'], 
             'updated_user' => Auth::user()->id
         ];
         if( $meta_id == 0){
@@ -283,7 +280,7 @@ class VideoController extends Controller
         $model->delete();
 
         // redirect
-        Session::flash('message', 'Xóa video thành công');
+        Session::flash('message', 'Xóa thành công');
         return redirect()->route('video.index');
     }   
 }

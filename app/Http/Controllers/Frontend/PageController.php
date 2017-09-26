@@ -32,7 +32,7 @@ class PageController extends Controller
         foreach($loaiSp as $loai){
             $cateList[$loai->id] = Cate::where('loai_id', $loai->id)->orderBy('display_order')->get();
         }
-        return view('frontend.pages.index', compact('detail', 'lang', 'loaiSp', 'cateList', 'saleList'
+        return view('frontend.pages.index', compact('detail', 'lang', 'loaiSp', 'cateList', 'saleList', 'slug'
             ));
     }
 }

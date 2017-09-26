@@ -35,7 +35,7 @@ class AlbumController extends Controller
                                 ->select('album.*', 'album_img.image_url')
                                 ->orderBy('id', 'desc')->paginate(24);
 
-        $seo['title'] = $seo['description'] = $seo['keywords'] = $lang == 'vi' ? "Bộ sưu tập" : "Album";
+        $seo['title'] = $seo['description'] = $seo['keywords'] = $lang == 'vi' ? "Thư viện ảnh" : "Album";
 
           //sale product
         $saleList = Product::where(['is_sale' => 1])->where('price_sale', '>', 0)                    

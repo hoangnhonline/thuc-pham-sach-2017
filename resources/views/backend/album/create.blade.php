@@ -43,8 +43,8 @@
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Hình ảnh</a></li>
-                    <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Thông tin VN</a></li>
-                    <li role="presentation"><a href="#homeEn" aria-controls="homeEn" role="tab" data-toggle="tab">Thông tin EN</a></li>
+                    <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Thông tin</a></li>
+                    <!--<li role="presentation"><a href="#homeEn" aria-controls="homeEn" role="tab" data-toggle="tab">Thông tin EN</a></li>-->
                     
                   </ul>
 
@@ -74,7 +74,7 @@
                           <label>Slug <span class="red-star">*</span></label>                  
                           <input type="text" class="form-control" name="slug_vi" id="slug_vi" value="{{ old('slug_vi') }}">
                         </div>                                             
-                        <div class="form-group">
+                        <!--<div class="form-group">
                           <label>Tags VI</label>
                           <select class="form-control select2" name="tags_vi[]" id="tags_vi" multiple="multiple" style="width:100% !important;">                  
                             @if( $tagViList->count() > 0)
@@ -83,7 +83,7 @@
                               @endforeach
                             @endif
                           </select>
-                        </div>
+                        </div>-->
 
                          <div class="form-group">
                           <label>Chi tiết</label>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="homeEn">                        
+                    <!--<div role="tabpanel" class="tab-pane" id="homeEn">                        
                         <div class="form-group" >                  
                           <label>Name <span class="red-star">*</span></label>
                           <input type="text" class="form-control" name="name_en" id="name_en" value="{{ old('name_en') }}">
@@ -146,7 +146,7 @@
                   <!-- Nav tabs -->
                   <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#seoVi" aria-controls="seoVi" role="tab" data-toggle="tab">VN</a></li>
-                    <li role="presentation"><a href="#seoEn" aria-controls="seoEn" role="tab" data-toggle="tab">EN</a></li>                    
+                    <!--<li role="presentation"><a href="#seoEn" aria-controls="seoEn" role="tab" data-toggle="tab">EN</a></li>                    -->
                   </ul>
 
                   <!-- Tab panes -->
@@ -171,12 +171,12 @@
                             <textarea class="form-control" rows="6" name="custom_text_vi" id="custom_text_vi">{{ old('custom_text_vi') }}</textarea>
                           </div>
                     </div><!--end thong tin co ban--> 
-                    <div role="tabpanel" class="tab-pane" id="seoEn">                        
+                    <!--<div role="tabpanel" class="tab-pane" id="seoEn">                        
                         <div class="form-group">
                             <label>Meta title </label>
                             <input type="text" class="form-control" name="meta_title_en" id="meta_title_en" value="{{ old('meta_title_en') }}">
                           </div>
-                          <!-- textarea -->
+                        
                           <div class="form-group">
                             <label>Meta desciption</label>
                             <textarea class="form-control" rows="6" name="meta_description_en" id="meta_description_en">{{ old('meta_description_en') }}</textarea>
@@ -241,17 +241,7 @@ $(document).on('click', '.remove-image', function(){
           filebrowserImageUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=images') }}",
           filebrowserFlashUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=flash') }}"
       });
-      var editor2 = CKEDITOR.replace( 'description_en',{
-          language : 'vi',
-          height: 300,
-          filebrowserBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=files') }}",
-          filebrowserImageBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=images') }}",
-          filebrowserFlashBrowseUrl: "{{ URL::asset('/backend/dist/js/kcfinder/browse.php?type=flash') }}",
-          filebrowserUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=files') }}",
-          filebrowserImageUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=images') }}",
-          filebrowserFlashUploadUrl: "{{ URL::asset('/backend/dist/js/kcfinder/upload.php?type=flash') }}"
-      });
-      
+     
       $('#btnUploadImage').click(function(){        
         $('#file-image').click();
       }); 
@@ -321,32 +311,7 @@ $(document).on('click', '.remove-image', function(){
             });
          }
       });
-      $('#name_en').change(function(){
-         var name = $.trim( $(this).val() );
-         if( name != '' ){
-            $.ajax({
-              url: $('#route_get_slug').val(),
-              type: "POST",
-              async: false,      
-              data: {
-                str : name
-              },              
-              success: function (response) {
-                if( response.str ){                  
-                  $('#slug_en').val( response.str );
-                }                
-              },
-              error: function(response){                             
-                  var errors = response.responseJSON;
-                  for (var key in errors) {
-                    
-                  }
-                  //$('#btnLoading').hide();
-                  //$('#btnSave').show();
-              }
-            });
-         }
-      }); 
+      
     });
     
 </script>

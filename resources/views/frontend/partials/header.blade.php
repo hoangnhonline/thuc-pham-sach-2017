@@ -21,8 +21,9 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
           </div>
         </div>
          <div class="col-md-2 col-sm-2 col-xs-12">
-          <p style="color:#FFF; padding-top:25px;font-size:17px">Mr.Tiến 094-909-8118</p>
-          <p style="color:#FFF; font-size:17px">Cuộc sống an lành</p>
+          <p style="color:#FFF; padding-top:0px;font-size:17px">Mr.Tiến 094-909-8118</p>
+          <p style="color:#FFF; font-size:18px; margin-top:-12px">Thực phẩm an toàn</p>
+          <p style="color:#FFF; font-size:19px; margin-top:-12px">Cuộc sống an lành</p>
         </div>
         <div class="col-md-3 col-sm-4  col-xs-12"  style="padding-top:20px">
           <div class="wrap-cart-info3">
@@ -80,7 +81,7 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
                 <a href="{{ route('home') }}" {{ \Request::route()->getName() == "home" ? "class=active" : "" }}>{!! trans('text.trang-chu') !!}</a>
               </li>
               <li>
-                <a href="{{ route('pages', 'gioi-thieu') }}" {{ \Request::route()->getName() == "pages" && isset($slug) && $slug = 'gioi-thieu' ? "class=active" : "" }}>Giới thiệu</a>                
+                <a href="{{ route('pages', 'gioi-thieu') }}" {{ \Request::route()->getName() == "pages" && isset($slug) && $slug == 'gioi-thieu' ? "class=active" : "" }}>Giới thiệu</a>                
               </li>      
                       
               @foreach($loaiSpList as $loaiSp) 

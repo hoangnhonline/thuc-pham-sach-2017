@@ -14,7 +14,7 @@
                 <div class="detail-gallery">
                   <div class="mid">
                     <img src="{{ Helper::showImage($hinhArr[0]['image_url']) }}" alt="slide"/>
-                    <p><i class="fa fa-search"></i> {{ trans('text.re-chuot-phong-to') }}</p>
+                    <p><i class="fa fa-search"></i> {!! trans('text.re-chuot-phong-to') !!}</p>
                   </div>
                   <div class="carousel">
                     <ul>
@@ -38,10 +38,10 @@
               </div>
               <div class="col-md-7 col-sm-12 col-xs-12">
                 <div class="detail-info">
-                  <h2 class="title-detail">{{ $lang == "vi" ? $detail->name_vi : $detail->name_en }}</h2>
+                  <h2 class="title-detail">{!! $lang == "vi" ? $detail->name_vi : $detail->name_en !!}</h2>
                   
                   <div class="product-code">
-                    <label>{{ trans('text.ma-sp') }}: </label> <span>#{{ $detail->code }}</span>
+                    <label>{!! trans('text.ma-sp') !!}: </label> <span>#{!! $detail->code !!}</span>
                   </div>        
                   <!-- I got these buttons from simplesharebuttons.com -->
                   <div id="share-buttons" style="margin-top:10px">
@@ -100,7 +100,7 @@ display: inline;
                   </div>               
                   @if($detail->price_vnd > 0 && $detail->het_hang == 0)
                   <div class="attr-info">                              
-                    <a class="addcart-link" href="javascript:;" data-id="{{ $detail->id }}"><i class="fa fa-shopping-cart"></i> {{ trans('text.mua-hang') }}</a>
+                    <a class="addcart-link" href="javascript:;" data-id="{{ $detail->id }}"><i class="fa fa-shopping-cart"></i> {!! trans('text.mua-hang') !!}</a>
                   <!-- End Attr Info -->
                   </div>
                   @endif
@@ -113,8 +113,8 @@ display: inline;
           <div class="tab-detail">
             <div class="title-tab-detail">
               <ul role="tablist">
-                <li class="active"><a href="#details" data-toggle="tab">{{ trans('text.chi-tiet-san-pham') }} </a></li>
-                <li><a href="#feedback" data-toggle="tab">{{ trans('text.danh-gia') }}</a></li>                    
+                <li class="active"><a href="#details" data-toggle="tab">{!! trans('text.chi-tiet-san-pham') !!} </a></li>
+                <li><a href="#feedback" data-toggle="tab">{!! trans('text.danh-gia') !!}</a></li>                    
               </ul>
             </div>
             <div class="content-tab-detail">
@@ -136,7 +136,7 @@ display: inline;
           <!-- End Tab Detail -->
           @if($saleList->count() > 0)
           <div class="upsell-detail">
-            <h2 class="title-default">{{ trans('text.san-pham-khuyen-mai') }}</h2>
+            <h2 class="title-default">{!! trans('text.san-pham-khuyen-mai') !!}</h2>
             <div class="upsell-detail-slider">
               <div class="wrap-item">
                 @foreach($saleList as $product)
@@ -144,23 +144,23 @@ display: inline;
                   <div class="item-product">
                     <div class="product-thumb">
                       <a class="product-thumb-link" href="{{ $lang == 'vi' ? route('chi-tiet-vi',['slug' => $product->slug_vi, 'id' => $product->id]) : route('chi-tiet-en', ['slug' => $product->slug_en, 'id' => $product->id]) }}">
-                        <img class="first-thumb" alt="{{ $lang == 'vi' ? $product->name_vi : $product->name_en }}" 1" src="{{ Helper::showImage($product->image_url) }}">
-                        <img class="second-thumb" alt="{{ $lang == 'vi' ? $product->name_vi : $product->name_en }}" 2" src="{{ Helper::showImage($product->image_url) }}">
+                        <img class="first-thumb" alt="{!! $lang == 'vi' ? $product->name_vi : $product->name_en !!}" 1" src="{{ Helper::showImage($product->image_url) }}">
+                        <img class="second-thumb" alt="{!! $lang == 'vi' ? $product->name_vi : $product->name_en !!}" 2" src="{{ Helper::showImage($product->image_url) }}">
                       </a>
                       <div class="product-info-cart">                       
-                        <a class="addcart-link" href="javascript:;" data-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                        <a class="addcart-link" href="javascript:;" data-id="{{ $product->id }}"><i class="fa fa-shopping-cart"></i> Mua hàng</a>
                       </div>
                     </div>
                     <div class="product-info">
-                      <h3 class="title-product"><a href="{{ $lang == 'vi' ? route('chi-tiet-vi',['slug' => $product->slug_vi, 'id' => $product->id]) : route('chi-tiet-en', ['slug' => $product->slug_en, 'id' => $product->id]) }}">{{ $lang == 'vi' ? $product->name_vi : $product->name_en }}</a></h3>
+                      <h3 class="title-product"><a href="{{ $lang == 'vi' ? route('chi-tiet-vi',['slug' => $product->slug_vi, 'id' => $product->id]) : route('chi-tiet-en', ['slug' => $product->slug_en, 'id' => $product->id]) }}">{!! $lang == 'vi' ? $product->name_vi : $product->name_en !!}</a></h3>
                       <div class="info-price">
                         @if($product->is_sale == 1 && $product->price_sale > 0)
-                          <span>{{ number_format($product->price_sale) }}$</span>
-                          <del>{{ number_format($product->price) }}$</del>
+                          <span>{!! number_format($product->price_sale) !!}$</span>
+                          <del>{!! number_format($product->price) !!}$</del>
                         @else
-                          <span>{{ $product->price > 0 ? number_format($product->price)."$" : "Liên hệ" }}</span>
+                          <span>{!! $product->price > 0 ? number_format($product->price)."$" : "Liên hệ" !!}</span>
                           @if($lang == 'en' && $product->price_vnd > 0)<br>
-                          <span>{{ $product->price_vnd > 0 ? number_format($product->price_vnd)." VND" : "Liên hệ" }}</span>
+                          <span>{!! $product->price_vnd > 0 ? number_format($product->price_vnd)." VND" : "Liên hệ" !!}</span>
                           @endif
                         @endif
                       </div>                     

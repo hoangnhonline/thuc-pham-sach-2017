@@ -28,8 +28,7 @@ class AlbumController extends Controller
         $query = Album::where('album.status', 1);
               
         if( $name != ''){
-            $query->where('album.name_vi', 'LIKE', '%'.$name.'%');
-            $query->orWhere('album.name_en', 'LIKE', '%'.$name.'%');
+            $query->where('album.name_vi', 'LIKE', '%'.$name.'%');            
         }
         
         $query->leftJoin('album_img', 'album_img.id', '=','album.thumbnail_id');        
@@ -77,8 +76,7 @@ class AlbumController extends Controller
             //'slug_en.required' => 'Bạn chưa nhập slug EN',
         ]);        
         
-        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);
-        $dataArr['alias_en'] = Helper::stripUnicode($dataArr['name_en']);
+        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);        
                    
         $dataArr['created_user'] = Auth::user()->id;
 
@@ -190,8 +188,7 @@ class AlbumController extends Controller
            // 'slug_en.required' => 'Bạn chưa nhập slug EN',
         ]);        
         
-        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);
-        $dataArr['alias_en'] = Helper::stripUnicode($dataArr['name_en']);
+        $dataArr['alias_vi'] = Helper::stripUnicode($dataArr['name_vi']);        
         $dataArr['is_menu'] = isset($dataArr['is_menu']) ? 1 : 0;        
         $dataArr['updated_user'] = Auth::user()->id; 
 
@@ -294,10 +291,10 @@ class AlbumController extends Controller
             'description_vi' => $dataArr['meta_description_vi'], 
             'keywords_vi'=> $dataArr['meta_keywords_vi'], 
             'custom_text_vi' => $dataArr['custom_text_vi'], 
-            'title_en' => $dataArr['meta_title_en'], 
-            'description_en' => $dataArr['meta_description_en'], 
-            'keywords_en'=> $dataArr['meta_keywords_en'], 
-            'custom_text_en' => $dataArr['custom_text_en'], 
+            //'title_en' => $dataArr['meta_title_en'], 
+            //'description_en' => $dataArr['meta_description_en'], 
+            //'keywords_en'=> $dataArr['meta_keywords_en'], 
+            //'custom_text_en' => $dataArr['custom_text_en'], 
             'updated_user' => Auth::user()->id
         ];
         if( $meta_id == 0){
