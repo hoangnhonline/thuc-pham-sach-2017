@@ -26,7 +26,7 @@
         
         <div class="video_clip">
           <div class="videoWrapper">
-            <iframe width="100%" height="500" src="{{ str_replace("watch?v=", 'embed/', $detail->video_url) }}" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="500" src="{{ str_replace('watch?v=', 'embed/', $detail->video_url) }}?rel=0" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
         <div class="textentry">

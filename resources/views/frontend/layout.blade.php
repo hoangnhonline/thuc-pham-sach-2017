@@ -155,12 +155,7 @@ $counter = Helper::showCounter();
                   <label class="checkbox-inline" style="padding-left:0px">
                     <input type="checkbox"> Nhận các thông tin và chương trình khuyến mãi của shop.com qua email.
                   </label>
-              </div>
-              <div class="form-group policy-group">
-                <div class="input-wrap">
-                  <p class="policy">Khi bạn nhấn Đăng ký, bạn  đã đồng ý thực hiện mọi giao dịch mua bán theo <a target="_blank" href="#">điều kiện sử dụng và chính sách của shop.com</a>.</p>
-                </div>
-              </div>
+              </div>              
               <div class="form-group last">
                 <div class="input-wrap">
                   <div id="register_popup_submit" class="btn btn-danger btn-block btn-register-submit">Đăng ký</div>

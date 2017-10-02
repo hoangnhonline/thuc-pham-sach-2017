@@ -105,7 +105,7 @@
                             <label for="street" class="col-lg-4 control-label visible-lg-block">{{ trans('text.dia-chi') }}</label>
                             <div class="col-lg-8 input-wrap has-feedback">
                               <textarea name="street" class="form-control address" id="street" placeholder="Ví dụ: 52, đường Trần Hưng Đạo" data-bv-field="street" style="height:100px">{{ $customer->address }}</textarea>
-                               <span class="help-block"></span> <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">{{ trans('text.vui-long-nhap') }} {{ trans('text.dia-chi') }}</small></div>
+                               <small class="help-block" data-bv-validator="notEmpty" data-bv-for="street" data-bv-result="NOT_VALIDATED" style="display: none;">{{ trans('text.vui-long-nhap') }} {{ trans('text.dia-chi') }}</small></div>
                           </div>
                           <input type="hidden" name="delivery_address_type" value="1">
                           

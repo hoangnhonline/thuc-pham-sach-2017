@@ -34,11 +34,7 @@
           @endif
         </div>
     </div>
-    <div class="form-group policy-group">
-      <div class="input-wrap">
-        <p class="policy">Khi bạn nhấn Đăng ký, bạn  đã đồng ý thực hiện mọi giao dịch mua bán theo <a target="_blank" href="#" class="link">điều kiện sử dụng và chính sách của shop.com</a>.</p>
-      </div>
-    </div>
+    
     <div class="form-group last">
       <div id="register_popup_submit_1" class="btn btn-info btn-block btn-member">{{ trans('text.dang-ky') }}</div>
     </div>

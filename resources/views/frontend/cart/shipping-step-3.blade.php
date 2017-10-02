@@ -144,7 +144,7 @@
               phi_cod : $('#phi_cod').val()
             },
             success : function(data){            
-              location.href = "{{ route('thanh-cong') }}";
+              location.href = "{{ route('thanh-cong') }}"; 
             }
           });
         }
