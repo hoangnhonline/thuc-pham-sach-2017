@@ -69,6 +69,8 @@ $counter = Helper::showCounter();
 <script type="text/javascript" src="{{ URL::asset('public/assets/js/sweet.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('public/assets/js/icheck.min.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('public/assets/js/lazy.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('public/assets/js/jquery.sticky.js') }}"></script>
+
 <input type="hidden" id="route-add-cart" value="{{ route('them-sanpham') }}">
 <input type="hidden" id="route-cart" value="{{ route('gio-hang') }}">
 <div class="modal fade" id="modalLoginFrom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -218,5 +220,10 @@ $counter = Helper::showCounter();
 <input type="hidden" id="route-set-lang" value="{{ route('set-lang') }}">
 <input type="hidden" id="route-home" value="{{ route('home') }}">
 @yield('javascript')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.fix-header').sticky({ topSpacing: 0 });
+  });
+</script>
 </body>
 </html>

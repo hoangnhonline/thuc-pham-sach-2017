@@ -151,8 +151,7 @@
    
 
       @if(Session::has('new-register') || Session::has('register') ||
-         !$customer->full_name ||
-         !$customer->email ||
+         !$customer->full_name ||         
          !$customer->address ||
          !$customer->phone ||
          !$customer->country_id ||

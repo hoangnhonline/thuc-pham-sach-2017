@@ -334,8 +334,28 @@
     .paginav-featured-info .shopnow { font-size: 12px; width: 90px; height: 30px; line-height: 30px }
     .paginav-featured-info { padding-top: 30px }
     .item-trending3 { padding: 29px 10px }
+    #header-info h2{
+        font-size: 17px;
+    }
+    #header-info h1{
+        font-size: 20px;text-transform: uppercase;
+    }
+    
+    .smart-search.search-form3{
+        margin : 0 0 0 -40px;
+        padding: 0px;
+    }
 }
 @media (max-width:767px) {
+    .smart-search.search-form3{
+        width: 90%;
+    }
+    #header-right{
+        text-align: center;
+    }
+    .logo5{
+        padding-top: 0px;
+    }
     .footer-box6 { min-height: 0 }
     .adv-sidebar9 .sidebar-cat-childrent > li { border-bottom: 1px solid #e5e5e5 }
     .popular-cat-title li.active::after { display: none }
@@ -371,7 +391,7 @@
     .logo5 { text-align: center }
     .popular-cat-title li { border-bottom: 1px solid #e5e5e5; display: block }
     .hotdeal-countdown5 { margin: 10px 0 3px 0px }
-    .header-nav5 { float: right; margin-top: -62px; z-index: 999; position: relative; margin-bottom: addadpx }
+    .header-nav5 { float: right; margin-top: -48px; z-index: 999; position: relative; margin-bottom: addadpx }
     .main-nav.main-nav5 { float: right; margin: 0 }
     .banner-slider5.simple-owl-slider { margin-top: 30px }
     .sidebar-cat-brand { margin-right: 0 }
@@ -379,7 +399,7 @@
     .slider-home5.hot-category-slider .wrap-item.owl-theme .owl-controls { top: -30px; right: 0 }
     .item-banner5 .banner-info { display: none }
     .main-nav.main-nav3 .toggle-mobile-menu::after { background: #E0CB26 }
-    .wrap-cart-info3 { margin-left: 0; float: left; margin-top: 30px }
+    .wrap-cart-info3 { margin-left: 0;}
     .header-nav3 { background: transparent none repeat scroll 0 0; float: right; margin-top: -62px }
     .sub-header2 { padding-bottom: 10px }
     .content-page { margin-top: 0 }
@@ -572,6 +592,12 @@
     .mega-menu { display: none }
     .main-nav > ul > li.has-mega-menu > a::before, .main-nav > ul > li.has-mega-menu > a::after { display: none !important }
     .outlet-box .outlet-box-col, .outlet-box .outlet-box-row { display: block; border: none }
+    #header-info h2{
+        font-size: 15px;
+    }
+    #header-info h1{
+        font-size: 17px;text-transform: uppercase;
+    }
 }
 @media (max-width:480px) {
     .item-special li .zoom-image-thumb { width: 100px }

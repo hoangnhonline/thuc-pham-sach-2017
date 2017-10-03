@@ -200,8 +200,7 @@ class CartController extends Controller
             return redirect()->route('home');
         }
         // check info
-        if(!$customer->full_name ||
-           !$customer->email ||
+        if(!$customer->full_name ||           
            !$customer->address ||
            !$customer->phone ||
            !$customer->country_id ||
@@ -466,7 +465,7 @@ class CartController extends Controller
         $settingArr = Settings::whereRaw('1')->lists('value', 'name');
         $emailAdmin = explode(',', $settingArr['email_nhan_thong_bao']);
         $emailArr = array_merge([$email], $emailAdmin);
-        
+        dd($emailArr);
         // send email
         $order_id =str_pad($order_id, 6, "0", STR_PAD_LEFT);
         

@@ -22,7 +22,7 @@ class CateController extends Controller
     public function index(Request $request)
     {
         $loaiSpArr = LoaiSp::all();
-        $detailLoai = LoaiSp::find(5);
+        $detailLoai = LoaiSp::first();
       
         $loai_id = $request->loai_id ? $request->loai_id : $detailLoai->id;
       

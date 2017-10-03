@@ -1,36 +1,32 @@
 <?php 
 $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')->get();
 ?>
-<div id="header">
+<div id="header" class="fix-header">
   <div class="header3 header5 header11" style="padding:5px;padding-bottom:10px">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-2 col-sm-2 col-xs-12">
           <div class="logo5">
             <a href="{{ route('home') }}"><img src="{{ Helper::showImage($settingArr['logo']) }}" alt="Logo TPS" height="80px" /></a>
           </div>
         </div>
        
-        <div class="col-md-4 col-sm-4 col-xs-12" style="padding-top:20px">
-          <div class="smart-search search-form3 search-form5">
-            
-            <form class="smart-search-form" method="GET" action="{{ route('search') }}">
-              <input type="text"  name="keyword" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue" value="{{ isset($tu_khoa) ? $tu_khoa : trans('text.nhap-ten-san-pham') }}" />
-              <input type="submit" value="" />
-            </form>
+        <div class="col-md-7 col-sm-6 col-xs-12">
+          <div id="header-info">
+            <h1>Thực phẩm an toàn - Green Farm</h1>
+            <h2>Thực phẩm an toàn - Cuộc sống an lành</h2>
+            <h2>AN TOÀN - NGON - RẺ</h2>
           </div>
+          
         </div>
-         <div class="col-md-2 col-sm-2 col-xs-12">
-          <p style="color:#FFF; padding-top:0px;font-size:17px">Mr.Tiến 094-909-8118</p>
-          <p style="color:#FFF; font-size:18px; margin-top:-12px">Thực phẩm an toàn</p>
-          <p style="color:#FFF; font-size:19px; margin-top:-12px">Cuộc sống an lành</p>
-        </div>
-        <div class="col-md-3 col-sm-4  col-xs-12"  style="padding-top:20px">
+       
+        <div class="col-md-3 col-sm-4  col-xs-12" id="header-right">
+          <p style="" class="info-name-contact">Mr.Tiến 094-909-8118</p>
           <div class="wrap-cart-info3">
             <ul class="top-info top-info3">
               <li class="top-account has-child">
                 @if(!Session::get('login'))
-                <a href="#"><i class="fa fa-user"></i></a>
+                <a href="#">Đăng nhập/Đăng ký</a>
                 <ul class="user-ajax-guest sub-menu-top">
                     <li id="login_link"><a class="user-name-login" title="Đăng Nhập" href="javascript:(void);" class="link" data-dismiss="modal" data-toggle="modal" data-target="#modalLoginFrom"><i class="fa fa-sign-in"></i> {{ trans('text.dang-nhap') }}</a></li>
                     <li id="login_fb_link" class="login-by-facebook-popup">
@@ -57,14 +53,15 @@ $loaiSpList = DB::table('loai_sp')->where('status', 1)->orderBy('display_order')
                 
 
               </li>                          
-            </ul>
-            <div class="mini-cart mini-cart-3">
-              <a class="header-mini-cart3 header-mini-cart5" href="{{ route('gio-hang') }}">
-                <span class="total-mini-cart-icon"></span>
-                <span class="total-mini-cart-item">{{Session::get('products') ? array_sum(Session::get('products')) : 0}}</span>
-              </a>
-              
-            </div>
+            </ul>            
+          </div>
+          <div class="cleafix"></div>
+          <div class="smart-search search-form3 search-form5 clearfix">
+            
+            <form class="smart-search-form" method="GET" action="{{ route('search') }}">
+              <input type="text"  name="keyword" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue" value="{{ isset($tu_khoa) ? $tu_khoa : trans('text.nhap-ten-san-pham') }}" />
+              <input type="submit" value="" />
+            </form>
           </div>
         </div>
       </div>

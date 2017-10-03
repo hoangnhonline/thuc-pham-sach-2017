@@ -1,8 +1,4 @@
 @extends('frontend.layout')
-@section('header')
-    @include('frontend.partials.main-header')
-    @include('frontend.partials.home-menu')
-  @endsection
 @include('frontend.partials.meta')
 @section('content')
 
@@ -52,21 +48,7 @@
                               <input type="tel" name="telephone" class="form-control address" id="telephone" value="{{$customer->phone}}" placeholder="Nhập số điện thoại" data-bv-field="telephone">
                               <small class="help-block" data-bv-validator="notEmpty" data-bv-for="telephone" data-bv-result="NOT_VALIDATED" style="display: none;">Vui lòng nhập Số điện thoại từ 9 - 15 chữ số</small></div>
                           </div>
-                          <div class="form-group row">
-                            <label for="country_id" class="col-lg-4 control-label visible-lg-block">{{ trans('text.quoc-gia') }}</label>
-                            <div class="col-lg-8 input-wrap has-feedback">
-                              <select name="country_id" class="form-control address" id="country_id" data-bv-field="country_id">
-                                <option value="">{{ trans('text.chon') }} {{ trans('text.quoc-gia') }}</option>
-                                @foreach($listCountry as $country)
-                                  <option value="{{$country->id}}"
-                                  @if($customer->country_id == $country->id)
-                                  selected
-                                  @endif
-                                  >{{$country->name}}</option>
-                                @endforeach
-                              </select>
-                              <small class="help-block" data-bv-validator="notEmpty" data-bv-for="country_id" data-bv-result="NOT_VALIDATED" style="display: none;">{{ trans('text.vui-long-chon') }} {{ trans('text.quoc-gia') }}</small></div>
-                          </div>
+                          <input type="hidden" name="country_id" value="235" id="country_id">
                           <div class="form-group row viet">
                             <label for="city_id" class="col-lg-4 control-label visible-lg-block">Tỉnh/Thành phố</label>
                             <div class="col-lg-8 input-wrap has-feedback">
@@ -130,7 +112,6 @@
     </div>
 </div>
 @endsection
-@include('frontend.partials.footer')
 @section('javascript')
    <script type="text/javascript">
     $(document).ready(function() {

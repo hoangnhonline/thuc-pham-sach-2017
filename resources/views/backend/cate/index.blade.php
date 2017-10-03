@@ -75,7 +75,7 @@
                 <td style="white-space:nowrap; text-align:right">                 
                   <a href="{{ route( 'cate.edit', [ 'id' => $item->id ]) }}" class="btn-sm btn btn-warning">Chỉnh sửa</a>                 
                   @if($item->sanPham->count() == 0)
-                  <a onclick="return callDelete('{{ $item->name }}','{{ route( 'cate.destroy', [ 'id' => $item->id ]) }}');" class="btn-sm btn btn-danger">Xóa</a>
+                  <a onclick="return callDelete('{{ $item->name_vi }}','{{ route( 'cate.destroy', [ 'id' => $item->id ]) }}');" class="btn-sm btn btn-danger">Xóa</a>
                   @endif
                   
                 </td>

@@ -152,10 +152,11 @@ blockquote {
 .top-menu a:hover{
 	color:#28AA4A;
 }
-
-.top-info {
-    float: right;
-    margin: 0;
+.info-name-contact{
+    color:#FFF; padding-top:0px;font-size:17px;margin-bottom: 0px;
+}
+#header-right {
+    margin-top: 10px;
 }
 .top-info > li {
     border-left: 1px solid #e8e8e8;
@@ -5267,10 +5268,10 @@ blockquote {
     background: #1bb2b0 none repeat scroll 0 0;
     padding: 22px 0;
 }
-.smart-search.search-form3 {
-    margin: 0 20px 0 -40px;
-    padding: 0 20px 0 10px;
-}
+.smart-search.search-form3{
+        margin : 0 0 0 -40px;
+        padding: 0px;
+    }
 .search-form3 .select-category {
     background: #f4f4f4 none repeat scroll 0 0;
     border: medium none;
@@ -5295,6 +5296,7 @@ blockquote {
     border: medium none;
     height: 36px;
     padding: 0 20px;
+    border-radius: 10px 0px 0px 10px;
 }
 .search-form3 .smart-search-form input[type="submit"] {
     background-color: #e0cb26;
@@ -5307,11 +5309,9 @@ blockquote {
     padding-right: 44px;
 }
 
-.top-info.top-info3 {
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+.top-info.top-info3 {    
     display: inline-block;
-    float: none;
-    margin-right: 16px;
+    float: none;    
     vertical-align: middle;
 }
 .mini-cart.mini-cart-3 {
@@ -5356,8 +5356,7 @@ blockquote {
     position: relative;
     display: block;
 }
-.wrap-cart-info3 {
-    float: right;
+.wrap-cart-info3 {    
     margin-top: 4px;
 }
 
@@ -14325,4 +14324,28 @@ label.control-label
 }
 span.het-hang{
     color:red;
+}
+#header-info h1, #header-info h2{
+    text-align: center;    
+    font-weight: bold;
+    color: #FFF;
+    margin : 10px 0;
+}
+#header-info h2{
+    font-size: 20px;
+}
+#header-info h1{
+    font-size: 24px;text-transform: uppercase;
+}
+.logo5{
+    padding-top: 10px;
+}
+#header-right{
+        text-align: right;
+    }
+.fix-header{
+        z-index: 9999;
+}
+.header-nav5{
+    background-color: #FFF;
 }

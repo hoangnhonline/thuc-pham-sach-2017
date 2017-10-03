@@ -195,11 +195,11 @@
       });      
       $('#login-form > .bv-form').submit(function() {
         var error = [];
-        var list_check = ['login_email', 'login_password'];
-        var login_email    = $(this).find('#login_email').val();
+        var list_check = ['login_phone', 'login_password'];
+        var login_phone    = $(this).find('#login_phone').val();
         var login_password = $(this).find('#login_password').val();
-        if(!login_email) {
-          error.push('login_email');
+        if(!login_phone) {
+          error.push('login_phone');
         }
 
         if(!login_password) {
